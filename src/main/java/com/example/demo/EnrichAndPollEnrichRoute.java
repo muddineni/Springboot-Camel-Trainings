@@ -13,7 +13,7 @@ public class EnrichAndPollEnrichRoute extends RouteBuilder {
 
 				.end();
 
-		from("timer://pollenrich?period=10000").routeId("enrich").autoStartup(true).log("beofre pollenrich::${body}")
+		from("timer://pollenrich?period=10000").routeId("pollenrich").autoStartup(true).log("beofre pollenrich::${body}")
 				.pollEnrich("file://enrichfolder/?fileName=enrich.txt", 10000).log("after pollenrich::${body}").end();
 	}
 }
