@@ -8,7 +8,7 @@ public class EnrichAndPollEnrichRoute extends RouteBuilder {
 
 	@Override
 	public void configure() throws Exception {
-		from("timer://enrich?period=10000").routeId("enrich").autoStartup(true).setBody(constant("goodmornign"))
+		from("timer://enrich?period=10000").routeId("enrich").autoStartup(true).setBody(constant("goodmorning"))
 				.enrich("file://enrichfolder/?fileName=enrich.txt")
 
 				.end();
